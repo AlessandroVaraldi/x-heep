@@ -73,7 +73,7 @@ COMPILER_PREFIX ?= $(shell basename $$(ls $(RISCV_XHEEP)/bin/*gcc 2>/dev/null | 
 # Compiler flags to be passed (for both linking and compiling)
 COMPILER_FLAGS 	?=
 # Arch options are any RISC-V ISA string supported by the CPU. Default 'rv32imc_zicsr'
-ARCH     		?= rv32imc_zicsr
+ARCH     		?= rv32imcf_zicsr_zifencei_xcvhwlp_xcvmem_xcvmac_xcvbi_xcvalu_xcvsimd_xcvbitmanip
 # Tell clang to use the gcc link instead of the llvm linker (useful for old clang). Default '0' (set it to 1)
 CLANG_LINKER_USE_LD ?= 0
 

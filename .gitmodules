@@ -1,0 +1,3 @@
+[submodule "sw/applications/storm"]
+	path = sw/applications/storm
+	url = https://github.com/AlessandroVaraldi/storm-app.git

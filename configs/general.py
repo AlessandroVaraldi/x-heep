@@ -7,6 +7,7 @@
 
 from x_heep_gen.xheep import XHeep
 from x_heep_gen.cpu.cv32e20 import cv32e20
+from x_heep_gen.cpu.cv32e40p import cv32e40p
 from x_heep_gen.bus_type import BusType
 from x_heep_gen.memory_ss.memory_ss import MemorySS
 from x_heep_gen.memory_ss.linker_section import LinkerSection
@@ -42,11 +43,12 @@ from x_heep_gen.peripherals.user_peripherals import (
 
 
 def config():
-    system = XHeep(BusType.onetoM)
-    system.set_cpu(cv32e20(rv32e=False, rv32m="RV32MSlow"))
+    system = XHeep(BusType.NtoM)
+    # system.set_cpu(cv32e20(rv32e=False, rv32m="RV32MSlow"))
+    system.set_cpu(cv32e40p(fpu=True, corev_pulp=True))
 
     memory_ss = MemorySS()
-    memory_ss.add_ram_banks([32] * 2)
+    memory_ss.add_ram_banks([32] * 10)
     memory_ss.add_linker_section(LinkerSection.by_size("code", 0, 0x00000E800))
     memory_ss.add_linker_section(LinkerSection("data", 0x00000E800, None))
     system.set_memory_ss(memory_ss)
